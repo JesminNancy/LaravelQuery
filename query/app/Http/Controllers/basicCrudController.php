@@ -16,4 +16,22 @@ class basicCrudController extends Controller
    return view('select', ['selectKey'=>$selectData]);
    
    }
+   
+   function onInsert(Request $request){
+         
+     $name= $request->input('name');
+     $class= $request->input('class');
+     $roll= $request->input('roll');
+     
+     $result=DB::insert('INSERT INTO `students`(`name`, `class`, `roll`) VALUES (?,?,?)', [$name,$class,$roll]);
+     
+     if($result==true){
+     
+      return "Success";
+      
+     }else{
+      return "Failed";
+     }
+   }
+   
 }
