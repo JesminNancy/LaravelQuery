@@ -33,5 +33,19 @@ class basicCrudController extends Controller
       return "Failed";
      }
    }
+      
+   function onDelete(Request $request){
+         
+    $id= $request->input('id'); 
+    $result=DB::delete('DELETE FROM `students` WHERE id=?', [$id]);
+    
+    if($result==true){
+    
+     return "Delete Success";
+     
+    }else{
+     return "Delete Failed";
+    }
+  }
    
 }

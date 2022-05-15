@@ -22,3 +22,22 @@
   });
 
 }
+
+
+function SendDelete(){
+
+  var myID=  document.getElementById('myID').value;
+  
+  var url="/deleteData";
+  
+  var data={id:myID};
+  
+  axios.post(url,data)
+  .then(function (response) {
+    alert(response.data);
+  })
+  .catch(function (error) {
+    alert("Error");
+  });
+
+}
