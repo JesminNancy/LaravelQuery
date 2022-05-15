@@ -47,5 +47,24 @@ class basicCrudController extends Controller
      return "Delete Failed";
     }
   }
+  
+  function onUpdate(Request $request){
+  
+    $id= $request->input('id');    
+    $name= $request->input('name');
+    $class= $request->input('class');
+    $roll= $request->input('roll');
+    
+    $result=DB::update('UPDATE `students` SET `name`=?,`class`=?,`roll`=? WHERE `id`=?', [$name,$class,$roll,$id]);
+    
+    if($result==true){
+    
+     return "Update Success";
+     
+    }else{
+     return "Update Failed";
+    }
+  }
+     
    
 }

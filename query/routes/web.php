@@ -13,8 +13,12 @@ Route::get('/delete', function(){
   return view('delete');
 });
 
+Route::get('/update', function(){
+  return view('update');
+});
+
  Route::post('/insertData', [basicCrudController::class, 'onInsert']);
  
  Route::post('/deleteData', [basicCrudController::class, 'onDelete']);
  
-// Route::get('/', [basicCrudController::class, 'onUpdate']);
+ Route::post('/updateData', [basicCrudController::class, 'onUpdate']);
